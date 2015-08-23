@@ -17,7 +17,10 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
-[merge]
-  ff = only
 [include]
   path = .gitconfig.local
+[user]
+	name = Brian Dear
+	email = superacidjax@me.com
+[url "https://"]
+	insteadOf = git://

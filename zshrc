@@ -67,5 +67,25 @@ setopt EXTENDED_GLOB
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+
+RUBIES=(/Users/briandear/.rubies/rub*)
+#source /usr/local/share/chruby/chruby.sh
+#source /usr/local/share/chruby/auto.sh
+
+#chruby ruby-2.1.2
 # Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+ [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+ eval "$(rbenv init -)"
+
+ export PATH="$HOME/.rbenv/bin:$PATH"
+ eval "$(rbenv init -)"
+
+# # recommended by brew doctor
+export PATH='/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/briandear/.rbenv/shims:/Users/briandear/.bin'
+
+
+export PATH="$HOME/.bin:$PATH"
+
+export PATH="$PATH:/usr/local/lib/node_modules"
+source $(brew --prefix nvm)/nvm.sh
+eval "$(rbenv init - --no-rehash zsh)"

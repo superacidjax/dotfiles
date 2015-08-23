@@ -1,6 +1,9 @@
 " Leader
 let mapleader = " "
 
+set t_Co=256
+set backspace=2 "
+let &colorcolumn="80"
 set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
 set nowritebackup
@@ -10,6 +13,9 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
+set ignorecase
+set smartcase
+set hlsearch
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -72,9 +78,11 @@ if executable('ag')
 endif
 
 " Color scheme
-colorscheme github
+colorscheme railscasts
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
+highlight ColorColumn ctermbg=23 guibg=#005f5f
+highlight LineNr ctermfg=17
 
 " Numbers
 set number
@@ -103,6 +111,9 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
+
+" turns off showing all search results
+map <leader>h :nohlsearch
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
@@ -138,3 +149,4 @@ let g:syntastic_check_on_open=1
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+Plug 'rking/ag.vim'
